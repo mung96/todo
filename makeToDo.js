@@ -28,7 +28,6 @@
         newLabel.appendChild(makeToggle());
         newLabel.appendChild(makeText(todo));
         newLabel.appendChild(makeImpo(todo));
-        newLabel.setAttribute("data-time", todo.time);
         return newLabel;
     }
 
@@ -47,12 +46,9 @@
     submitBtn.addEventListener('click',(e)=>{
         const textElem = document.querySelector('.text-todolist');
         const impoElem= document.querySelector('.choice-importance');
-    
         const todo = {text:textElem.value,impo:impoElem.value};
         
         e.preventDefault();
         addView(todo);
     })
-
-
 })();
