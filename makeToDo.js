@@ -60,5 +60,6 @@
         
         e.preventDefault();
         addView(todo);
+        textElem.value='';
     })
 })();
