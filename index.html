@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <link rel="stylesheet" href="style.css"> -->
+</head>
+<body>
+    <h2>To Do List</h2>
+    <!-- 달성률을 보여주는 부분 -->
+    <div class="achievement-rate">
+        <span class="achievement-rate-message">오늘은 이만큼이나 달성했어요</span>
+        <div class="achievement-rate-graph">그래프</div>
+    </div>
+
+    <section class="main">
+        <!-- main 왼쪽: 투두를 생성하는 부분 -->
+        <article class="make-todolist">
+            <h3>오늘의 할일 목록을 만들어보세요.</h3>
+
+            <div>
+            <input placeholder="할 일을 입력해주세요."/>
+            <div class="choice-importance">1</div>
+            <button class="submit-todolist">생성</button>
+            </div>
+
+            <div>
+                <h4>ToDO</h4>
+                <hr>
+                <label>
+                    <input role="switch" type="checkbox"/>
+                    <span>할일</span>
+                </label>
+            </div>
+        </article>
+
+        <!-- main 오른쪽: 투두를 중요도 분류로 보는 부분 -->
+        <article class="see-by-importance">
+            <h4>중요도 별로 모아보기</h4>
+
+            <select class="impoartance">
+                <option value="전체" selected>전체</option>
+                <option value="1" >중요도1</option>
+                <option value="2">중요도2</option>
+                <option value="3">중요도3</option>
+                <option value="3">완료</option>
+            </select>
+            
+        </article>
+    </section>
+
+    
+</body>
+</html>
