@@ -22,12 +22,22 @@
         return newImpo;
     }
 
+    function makeDeleteBtn(newLabel){
+        let newBtn = document.createElement("button");
+        newBtn.textContent="삭제";
+        newBtn.addEventListener('click',()=>{
+            newLabel.remove();
+        })
+        return newBtn;
+    }
+
     function makeTodoComponent(todo){
         let newLabel = document.createElement("label");
         newLabel.className='component-todo';
         newLabel.appendChild(makeToggle());
         newLabel.appendChild(makeText(todo));
         newLabel.appendChild(makeImpo(todo));
+        newLabel.appendChild(makeDeleteBtn(newLabel));
         return newLabel;
     }
 
