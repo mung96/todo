@@ -1,0 +1,52 @@
+body{
+    margin:0;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    justify-content: center;
+    
+
+    /* 아랫부분은 지워야함. */
+    border:1px red solid;
+}
+
+.achievement-rate{
+    display:flex;
+}
+
+.main{
+    display:flex;
+    gap:10%;
+    height: 450px;
+
+    /* 아랫부분은 지워야함. */
+    border:1px green solid;
+}
+
+/* 할일 목록을 만드는 부분 */
+.make-todolist{
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+
+    /* 아랫부분은 지워야함. */
+    border:1px black solid;
+}
+
+.input-todolist{
+    display: inline-flex;
+}
+
+/* 중요도에 따라 보는 부분 */
+.see-by-importance{
+    width: 260px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    /* 아랫부분은 지워야함. */
+    border:1px black solid;
+}
