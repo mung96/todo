@@ -1,7 +1,8 @@
 (()=>{
 
     const submitBtn = document.querySelector('.submit-todolist');
-    
+    const impoElem= document.querySelector('.choice-importance');
+  
 
     function makeToggle(){
         let newToggle = document.createElement("input");
@@ -47,19 +48,29 @@
    
         for(let impo of impos){
             if(todo.impo===impo.getAttribute('data-impo')){
+                console.log(1);
                 impo.insertBefore(newLabel,impo.children[0])
                 break;
             }
         }
     }
 
+    impoElem.addEventListener('input',()=>{
+        const possibleImpo = [0,1,2,3];
+        let errorMessage = document.querySelector('.input-error-message');
+        errorMessage.textContent = '';
+        if( !possibleImpo.includes(Number(impoElem.value))){
+            errorMessage.textContent= "중요도는 1,2,3만 입력 가능합니다.";
+        }
+    })
+
     submitBtn.addEventListener('click',(e)=>{
         const textElem = document.querySelector('.text-todolist');
-        const impoElem= document.querySelector('.choice-importance');
-        const todo = {text:textElem.value,impo:impoElem.value};
-        
+        let todo = {text:textElem.value,impo:impoElem.value};
+        if(!impoElem.value){todo.impo="1";}
         e.preventDefault();
         addView(todo);
         textElem.value='';
+        impoElem.value='';
     })
 })();
