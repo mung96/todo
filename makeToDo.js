@@ -2,7 +2,6 @@
 
     const submitBtn = document.querySelector('.submit-todolist');
     
-    const viewElem = document.querySelector('.view-todolist');
 
     function makeToggle(){
         let newToggle = document.createElement("input");
@@ -25,21 +24,45 @@
 
     function makeTodoComponent(todo){
         let newLabel = document.createElement("label");
+        newLabel.className='component-todo';
         newLabel.appendChild(makeToggle());
         newLabel.appendChild(makeText(todo));
         newLabel.appendChild(makeImpo(todo));
+        newLabel.setAttribute("data-time", todo.time);
         return newLabel;
     }
 
     function addView(todo){
-        let newLabel = makeTodoComponent(todo);        
-        viewElem.appendChild(newLabel);
+        const impos = document.querySelectorAll('.component-importance');
+        let newLabel = makeTodoComponent(todo); 
+   
+        for(let impo of impos){
+            if(todo.impo===impo.getAttribute('data-impo')){
+                impo.appendChild(newLabel);
+                break;
+            }
+        }
+
+        // // 위치 찾기
+        // for(let i=0;i<labels.length;i++){
+        //     //라벨마다 타임정보를 담아야겠네.
+        //     if(todo.time<=labels[i].getAttribute('data-time')*1){
+        //         childIndex=i;
+        //         break;
+        //     }
+        // }
+        // // console.log(childIndex);
+        // componentsElem.insertBefore(newLabel,componentsElem.children[1]);
+
     }
 
     submitBtn.addEventListener('click',(e)=>{
+        const currentDate = new Date();
+        const time = currentDate.getTime()
         const textElem = document.querySelector('.text-todolist');
         const impoElem= document.querySelector('.choice-importance');
-        const todo = {text:textElem.value,impo:impoElem.value};
+    
+        const todo = {text:textElem.value,impo:impoElem.value,time:time};
         
         e.preventDefault();
         addView(todo);
