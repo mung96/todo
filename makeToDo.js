@@ -38,31 +38,17 @@
    
         for(let impo of impos){
             if(todo.impo===impo.getAttribute('data-impo')){
-                impo.appendChild(newLabel);
+                impo.insertBefore(newLabel,impo.children[0])
                 break;
             }
         }
-
-        // // 위치 찾기
-        // for(let i=0;i<labels.length;i++){
-        //     //라벨마다 타임정보를 담아야겠네.
-        //     if(todo.time<=labels[i].getAttribute('data-time')*1){
-        //         childIndex=i;
-        //         break;
-        //     }
-        // }
-        // // console.log(childIndex);
-        // componentsElem.insertBefore(newLabel,componentsElem.children[1]);
-
     }
 
     submitBtn.addEventListener('click',(e)=>{
-        const currentDate = new Date();
-        const time = currentDate.getTime()
         const textElem = document.querySelector('.text-todolist');
         const impoElem= document.querySelector('.choice-importance');
     
-        const todo = {text:textElem.value,impo:impoElem.value,time:time};
+        const todo = {text:textElem.value,impo:impoElem.value};
         
         e.preventDefault();
         addView(todo);
