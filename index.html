@@ -20,18 +20,24 @@
         <article class="make-todolist">
             <h3>오늘의 할일 목록을 만들어보세요.</h3>
 
-            <div class="input-todolist">
-                <input placeholder="할 일을 입력해주세요."/>
-                <div class="choice-importance">1</div>
+            <form class="input-todolist">
+                <input class="text-todolist" placeholder="할 일을 입력해주세요."/>
+                <select class="choice-importance">
+                    <option value="1" selected>중요1</option>
+                    <option value="2">중요2</option>
+                    <option value="3">중요3</option>
+                    <option value="완료">완료</option>
+                </select>
                 <button class="submit-todolist">생성</button>
-            </div>
+            </form>
 
-            <div>
+            <div class="view-todolist">
                 <h4>ToDO</h4>
                 <hr>
                 <label>
                     <input role="switch" type="checkbox"/>
-                    <span>할일</span>
+                    <span class = "view-todolist-text">할일</span>
+                    <span class = "view-todolist-importance">2</span>
                 </label>
             </div>
         </article>
@@ -50,7 +56,7 @@
             
         </article>
     </section>
-
+<script src="makeToDo.js"></script>
     
 </body>
 </html>
