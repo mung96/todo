@@ -56,7 +56,6 @@
         newLabel.appendChild(makeText(todo));
         newLabel.appendChild(makeImpo(todo));
         newLabel.appendChild(makeDeleteBtn(newLabel,todo));
-        console.log(newLabel);
         return newLabel;
     }
 

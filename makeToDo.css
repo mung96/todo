@@ -1,0 +1,39 @@
+.make-todolist{
+    padding:30px 40px;
+    border-radius: 30px;
+}
+.components-todo{
+    overflow-y: scroll;
+    max-height: 180px;
+}
+
+.components-todo::-webkit-scrollbar {
+	display:none 
+}
+.text-todolist,.choice-importance{
+    height:35px;
+    font-size: 1rem;
+    text-align:center;
+    border-radius: 4px;
+}
+.text-todolist{
+    width:200px;
+    font-size: 1rem;
+}
+
+.choice-importance{
+    margin-left:10px;
+    margin-right:10px;
+    width:70px;
+}
+.view-todolist{
+    width:100%;
+}
+.view-todolist-title{
+    
+}
+.components-todo,.component-importance{
+    display:flex;
+    flex-direction: column;
+    row-gap:15px;
+}

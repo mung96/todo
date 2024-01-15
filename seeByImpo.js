@@ -17,6 +17,3 @@
         }
     })
 })();
-
-
-// view-todolist-text
