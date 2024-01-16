@@ -12,9 +12,12 @@
 
     impo.addEventListener('change',()=>{
         const currentSelect = impo.options[impo.selectedIndex].value;
+        // console.log(currentSelect);
+        
         contents.innerHTML='';
 
-        if(currentSelect in [1,2,3]){
+        if([1,2,3].includes(Number(currentSelect))){
+            console.log(currentSelect)
             const components = document.querySelector(`.component-importance[data-impo="${currentSelect}"]`);
             const labels = components.querySelectorAll('label');
             for (let label of labels){
