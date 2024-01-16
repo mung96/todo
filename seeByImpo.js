@@ -27,6 +27,14 @@
             for (let component of allComponents){
                 component.querySelectorAll('label').forEach(label=>addViewByCategory(label))}
             }
+
+        //action같은걸로 리팩터링 가능할 것 같은데.
+        if (currentSelect==="완료"){
+            const allCompleteTodos= document.querySelectorAll('.view-complete-todo');
+            for (let component of allCompleteTodos){
+                addViewByCategory(component)
+            }
+        }
         }
         );   
     })();

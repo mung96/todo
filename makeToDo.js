@@ -19,9 +19,11 @@
         newToggle.type="checkbox";
         newToggle.addEventListener('click',()=>{
             if(newToggle.checked){
-                componentElem[3].insertBefore(newLabel,componentElem[3].children[0])
+                newLabel.className = "view-complete-todo";
+                componentElem[3].insertBefore(newLabel,componentElem[3].children[0]);
             };
             if(!newToggle.checked){
+                newLabel.classList.remove("view-complete-todo");
                 componentElem[3-Number(todo.impo)].insertBefore(newLabel,componentElem[3-Number(todo.impo)].children[0])
             };
         })
