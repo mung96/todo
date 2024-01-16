@@ -1,6 +1,7 @@
 (()=>{
     const submitBtn = document.querySelector('.submit-todolist');
     const impoElem= document.querySelector('.choice-importance');
+    const componentElem =  document.querySelectorAll('.component-importance');
     let id=0;
 
     const jsonLocalStorage = {
@@ -12,10 +13,18 @@
         },
       };
   
-    function makeToggle(){
+    function makeToggle(newLabel,todo){
         let newToggle = document.createElement("input");
         newToggle.role = "switch";
         newToggle.type="checkbox";
+        newToggle.addEventListener('click',()=>{
+            if(newToggle.checked){
+                componentElem[3].insertBefore(newLabel,componentElem[3].children[0])
+            };
+            if(!newToggle.checked){
+                componentElem[3-Number(todo.impo)].insertBefore(newLabel,componentElem[3-Number(todo.impo)].children[0])
+            };
+        })
         return newToggle;
     }
     function makeText(todo){
@@ -36,7 +45,6 @@
         newBtn.textContent="삭제";
         newBtn.addEventListener('click',()=>{
             let currentTodos = jsonLocalStorage.getItem('todos')||[];
-            console.log(currentTodos);
             for(let i=0;i<currentTodos.length;i++){
                 if(todo.id === currentTodos[i].id){
                     currentTodos.splice(i,1);
@@ -52,7 +60,7 @@
     function makeTodoComponent(todo){
         let newLabel = document.createElement("label");
         newLabel.className='component-todo';
-        newLabel.appendChild(makeToggle());
+        newLabel.appendChild(makeToggle(newLabel,todo));
         newLabel.appendChild(makeText(todo));
         newLabel.appendChild(makeImpo(todo));
         newLabel.appendChild(makeDeleteBtn(newLabel,todo));
@@ -65,7 +73,6 @@
    
         for(let impo of impos){
             if(todo.impo===impo.getAttribute('data-impo')){
-                console.log(1);
                 impo.insertBefore(newLabel,impo.children[0])
                 break;
             }
