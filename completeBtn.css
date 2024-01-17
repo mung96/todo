@@ -59,18 +59,3 @@ label {
 [type="checkbox"]:enabled:hover {
   box-shadow: 0 0 0 max(4px, 0.2em) lightgray;
 }
-
-/* Global CSS */
-body {
-  display: grid;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-}
-
-fieldset {
-  border: none;
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}

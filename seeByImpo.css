@@ -1,0 +1,15 @@
+.see-by-importance{
+    padding:30px 40px;
+    border-radius: 30px;
+}
+.see-by-importance-contents{
+    display:flex;
+    flex-direction: column;
+    row-gap: 6px;
+    width:200px;
+}
+.impoartance{
+    text-align: center;
+    width:100px;
+    height:35px;
+}

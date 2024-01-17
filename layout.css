@@ -43,7 +43,7 @@ body{
 
 /* 중요도에 따라 보는 부분 */
 .see-by-importance{
-    width: 260px;
+    width: 280px;
     display: flex;
     flex-direction: column;
     align-items: center;

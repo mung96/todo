@@ -13,6 +13,19 @@
         },
       };
   
+    function makeImpoIcon(todo){
+        let icon ="";
+        if(todo.impo==1){
+            icon = "1️⃣";
+        }
+        if(todo.impo==2){
+            icon = "2️⃣";
+        }
+        if(todo.impo==3){
+            icon = "3️⃣";
+        }
+        return icon;
+    }
     function makeToggle(newLabel,todo){
         let newToggle = document.createElement("input");
         newToggle.role = "switch";
@@ -35,9 +48,11 @@
         newText.className="view-todolist-text";
         return newText;
     }
+
     function makeImpo(todo){
         let newImpo = document.createElement("span");
-        newImpo.textContent = todo.impo;
+        newImpo.textContent = makeImpoIcon(todo);
+        // newImpo.textContent = todo.impo;
         newImpo.className="view-todolist-importance";
         return newImpo;
     }
