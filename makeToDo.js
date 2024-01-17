@@ -2,7 +2,6 @@
     const submitBtn = document.querySelector('.submit-todolist');
     const impoElem= document.querySelector('.choice-importance');
     const componentElem =  document.querySelectorAll('.component-importance');
-    let id=0;
 
     const jsonLocalStorage = {
         setItem: (key, value) => {
@@ -12,6 +11,9 @@
           return JSON.parse(localStorage.getItem(key));
         },
       };
+    
+    let completeTodos = jsonLocalStorage.getItem('completes') || [];
+    let id=jsonLocalStorage.getItem('id')||0;
   
     function makeImpoIcon(todo){
         let icon ="";
@@ -34,10 +36,21 @@
             if(newToggle.checked){
                 newLabel.className = "view-complete-todo";
                 componentElem[3].insertBefore(newLabel,componentElem[3].children[0]);
+                let newCompleteTodos = jsonLocalStorage.getItem('completes')||[];
+                newCompleteTodos.push(todo)
+                jsonLocalStorage.setItem('completes',newCompleteTodos);
+                
             };
             if(!newToggle.checked){
                 newLabel.classList.remove("view-complete-todo");
                 componentElem[3-Number(todo.impo)].insertBefore(newLabel,componentElem[3-Number(todo.impo)].children[0])
+                for(let i=0;i<completeTodos.length;i++){
+                    if(todo.id === completeTodos[i].id){
+                        completeTodos.splice(i,1);
+                        break;
+                    }
+                }
+                jsonLocalStorage.setItem('completes',completeTodos);
             };
         })
         return newToggle;
@@ -52,7 +65,6 @@
     function makeImpo(todo){
         let newImpo = document.createElement("span");
         newImpo.textContent = makeImpoIcon(todo);
-        // newImpo.textContent = todo.impo;
         newImpo.className="view-todolist-importance";
         return newImpo;
     }
@@ -77,6 +89,7 @@
     function makeTodoComponent(todo){
         let newLabel = document.createElement("label");
         newLabel.className='component-todo';
+        newLabel.setAttribute("data-id",todo.id);
         newLabel.appendChild(makeToggle(newLabel,todo));
         newLabel.appendChild(makeText(todo));
         newLabel.appendChild(makeImpo(todo));
@@ -114,6 +127,7 @@
         jsonLocalStorage.setItem('todos',todos);
 
         id +=1;
+        jsonLocalStorage.setItem('id',id);
 
         if(!impoElem.value){todo.impo="1";}
         e.preventDefault();
@@ -124,8 +138,16 @@
 
     window.onload= ()=>{
         todos = jsonLocalStorage.getItem('todos')||[];
+        completeTodos = jsonLocalStorage.getItem('completes');
         for(todo of todos){
             addView(todo);
+            if (completeTodos&&completeTodos.some((component)=>component.id===todo.id)){
+                const checked = document.querySelector(`[data-id="${todo.id}"]`)
+                if(checked){
+                    checked.querySelector('input').checked=true;
+                }
+            }
         }
+
     }
 })();
