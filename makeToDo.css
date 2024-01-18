@@ -66,3 +66,8 @@ h1{
     background-color: #B599F2 ;
     border:solid #B599F2;
 }
+.delete-btn{
+    border:none;
+    font-size:1.2rem;
+    background-color: #f6f6f6;
+}

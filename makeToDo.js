@@ -71,7 +71,8 @@
 
     function makeDeleteBtn(newLabel,todo){
         let newBtn = document.createElement("button");
-        newBtn.textContent="삭제";
+        newBtn.className="delete-btn";
+        newBtn.textContent="❎";
         newBtn.addEventListener('click',()=>{
             let currentTodos = jsonLocalStorage.getItem('todos')||[];
             for(let i=0;i<currentTodos.length;i++){
