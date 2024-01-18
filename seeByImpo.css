@@ -1,6 +1,10 @@
 .see-by-importance{
+    width:350px;
+    color:#B385F2;
+    background-color: #f6f6f6;
     padding:30px 40px;
     border-radius: 30px;
+    border:#f6f6f6 solid;
 }
 .see-by-importance-contents{
     display:flex;

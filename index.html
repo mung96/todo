@@ -11,28 +11,24 @@
     
 </head>
 <body>
-    <h1>To Do List</h1>
-
-    <!-- 달성률을 보여주는 부분 -->
-    <div class="achievement-rate">
-        <span class="achievement-rate-message">오늘은 이만큼이나 달성했어요</span>
-        <div class="achievement-rate-graph">그래프</div>
+    <div>
+        <h1>To Do List</h1>
     </div>
 
     <section class="main">
         <!-- main 왼쪽: 투두를 생성하는 부분 -->
         <article class="make-todolist">
-            <h3>오늘의 할일 목록을 만들어보세요.</h3>
+            <h2>오늘의 할일 목록을 만들어보세요.</h2>
 
             <form class="input-todolist">
-                <input class="text-todolist" placeholder="할 일을 입력해주세요."/>
-                <input class="choice-importance" placeholder="중요도"/>
+                <input class="text-todolist" placeholder="할 일을 입력해주세요." />
+                <input class="choice-importance" placeholder="중요도" />
                 <button class="submit-todolist">생성</button>
             </form>
             <p class="input-error-message" style="color:red"></p>
 
             <div class="view-todolist">
-                <h4 class="view-todolist-title">To Do</h4>
+                <h3 class="view-todolist-title">To Do</h3>
                 <hr>
                 <div class="components-todo">
                     <div class="component-importance" data-impo="3">
@@ -52,7 +48,7 @@
 
         <!-- main 오른쪽: 투두를 중요도 분류로 보는 부분 -->
         <article class="see-by-importance">
-            <h3>중요도 별로 모아보기</h3>
+            <h2>중요도별 모아보기</h2>
 
             <select class="impoartance">
                 <option value="전체" selected>전체</option>

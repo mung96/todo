@@ -27,8 +27,8 @@ label {
 }
 
 [type="checkbox"]:checked {
-  background-color: tomato;
-  border-color: tomato;
+  background-color: #B385F2;
+  border-color: #B385F2;
 }
 
 [type="checkbox"]:checked::before {

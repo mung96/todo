@@ -6,6 +6,7 @@ html{
 }
 
 body{
+    background-color: #D8DEF2;
     margin:0;
     display:flex;
     flex-direction: column;
@@ -21,7 +22,7 @@ body{
 
 .main{
     display:flex;
-    gap:10%;
+    gap:5%;
     height: 450px;
 }
 
